@@ -1,0 +1,18 @@
+import "../base/base.zmodel";
+import "../admin-user/role/role-function.zmodel";
+
+model Function extends Base {
+    FunctionName  String
+    FunctionCode  String         @unique
+    MainCategory  String
+    SubCategory   String
+    MainUrl       String
+    SubUrl        String
+
+    RoleFunctions RoleFunction[]
+
+    // IsAlwaysHide  Boolean @default(false)
+    // Is2FARequired Boolean @default(false)
+
+    @@removeColumn(["ObjectNumber", "ObjectName"])
+}

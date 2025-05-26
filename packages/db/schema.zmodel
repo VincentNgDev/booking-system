@@ -1,0 +1,18 @@
+/**
+ * This is the main schema file for the Zenstack to generate Prisma schema
+ * 
+ * Import the index zmodel file for import all the tables from the schema folder
+ */
+
+// Import all tables from the index zmodel file
+import "./src/schema/index"
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../generated/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}

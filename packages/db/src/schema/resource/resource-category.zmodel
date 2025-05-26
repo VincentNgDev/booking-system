@@ -1,0 +1,6 @@
+import "../base/base.zmodel";
+import "./resource-type.zmodel";
+
+model ResourceCategory extends Base {
+    ResourceType ResourceType[]
+}

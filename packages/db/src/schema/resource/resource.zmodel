@@ -1,0 +1,13 @@
+import "../base/base.zmodel";
+import "./resource-type.zmodel";
+import "../asset/location.zmodel";
+
+model Resource extends Base {
+    ResourceTypeID  String       @unique
+    ResourceType    ResourceType @relation(fields: [ResourceTypeID], references: [ObjectID])
+
+    ActiveStatus    String       @default("Active") @db.VarChar(20)
+    TerminationDate DateTime?
+    LocationID      String       @unique
+    Location        Location     @relationOneSideRef('ManyToOne', "Resources") @relation(fields: [LocationID], references: [ObjectID])
+}

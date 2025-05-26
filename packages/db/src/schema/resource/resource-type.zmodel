@@ -1,0 +1,9 @@
+import "../base/base.zmodel";
+import "./resource-category.zmodel";
+import "./resource.zmodel";
+
+model ResourceType extends Base {
+    ResourceCategoryID String           @unique
+    ResourceCategory   ResourceCategory @relation(fields: [ResourceCategoryID], references: [ObjectID])
+    Resource           Resource[]
+}

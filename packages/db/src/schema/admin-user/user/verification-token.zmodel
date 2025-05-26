@@ -1,0 +1,7 @@
+import "./user.zmodel";
+
+model VerificationToken {
+    Identifier String   @unique
+    Token      String   @unique
+    Expires    DateTime
+}   

@@ -1,0 +1,10 @@
+import "../../base/base.zmodel";
+import "./role-function.zmodel";
+
+model Role extends Base {
+    RoleName      String         @unique
+    RoleCode      String         @unique
+    RoleFunctions RoleFunction[]
+
+    @@removeColumn(["ObjectNumber", "ObjectName"])
+}

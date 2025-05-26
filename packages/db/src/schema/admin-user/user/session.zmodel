@@ -1,0 +1,13 @@
+import "../../base/base.zmodel";
+import "./user.zmodel";
+
+model Session extends Base {
+    SessionToken String  @unique
+    Expires DateTime
+
+    UserID String @unique
+    User   User?  @relationOneSideRef('ManyToOne', "Sessions") @relation(fields: [UserID], references: [ObjectID])
+
+    @@index([UserID])
+    @@removeColumn(["CreatedBy", "UpdatedBy", "ObjectName", "ObjectNumber"])
+}

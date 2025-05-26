@@ -1,0 +1,23 @@
+import "../../base/base.zmodel";
+import "./user.zmodel";
+
+model Account extends Base {
+    Type                  String
+    Provider              String  @unique
+    ProviderAccountID     String  @unique
+
+    RefreshToken          String? @db.Text
+    AccessToken           String? @db.Text
+    ExpiresAt             Int?
+    TokenType             String?
+    Scope                 String?
+    IdToken               String? @db.Text
+    SessionState          String?
+    RefreshTokenExpiresIn Int?
+
+    UserID                String  @unique
+    User                  User?   @relationOneSideRef('ManyToOne', "Accounts") @relation(fields: [UserID], references: [ObjectID])
+
+    @@index([UserID])
+    @@removeColumn(["CreatedBy", "UpdatedBy", "ObjectName", "ObjectNumber"])
+}

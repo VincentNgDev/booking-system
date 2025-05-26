@@ -1,0 +1,12 @@
+abstract model Base {
+    ObjectID     String    @id @default(uuid())
+    ObjectName   String?
+    ObjectNumber String?
+    IsDeleted    Boolean   @default(false)
+    DeletedAt    DateTime? @default(dbgenerated("NULL"))
+    Version      Int       @default(1)
+    CreatedAt    DateTime  @default(now())
+    CreatedBy    String?
+    UpdatedAt    DateTime? @updatedAt @default(dbgenerated("NULL"))
+    UpdatedBy    String?
+}

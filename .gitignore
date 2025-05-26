@@ -34,3 +34,9 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# tailwind.config.ts
+tailwind.config.ts
+
+# generated db client
+generated/

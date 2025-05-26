@@ -1,0 +1,11 @@
+import "../../base/base.zmodel";
+import "./role.zmodel";
+import "../../admin-general/function.zmodel";
+
+model RoleFunction extends Base {
+    RoleID String @unique
+    Role   Role   @relation(fields: [RoleID], references: [ObjectID])
+    FunctionID String @unique
+    Function  Function @relation(fields: [FunctionID], references: [ObjectID])
+    @@removeColumn(["ObjectNumber", "ObjectName", "UpdatedAt", "UpdateBy"])
+}

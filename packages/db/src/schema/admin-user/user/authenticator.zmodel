@@ -1,0 +1,17 @@
+import "./user.zmodel"
+
+model Authenticator {
+    CredentialID         String  @unique
+
+    ProviderAccountId    String
+    CredentialPublicKey  String
+    Counter              Int
+    CredentialDeviceType String
+    CredentialBackedUp   Boolean
+    Transports           String?
+
+    UserId               String
+    User                 User    @relationOneSideRef('ManyToOne', "Authenticator") @relation(fields: [UserId], references: [ObjectID], onDelete: Cascade)
+
+    @@id([UserId, CredentialID])
+}

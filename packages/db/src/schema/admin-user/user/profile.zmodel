@@ -1,0 +1,23 @@
+import "../../base/base.zmodel"
+
+model Profile extends Base {
+    AddressLineOne      String?
+    AddressLineTwo      String?
+    AddressUnitNumber   String?
+    AdddressFloorNumber String?
+    AddressCountry      String?
+    AddressCity         String?
+    AddressState        String?
+    AddressPostalCode   String?
+
+    Email               String?
+    Phone               String?
+    MobilePhone         String?
+    Fax                 String?
+    DateOfBirth         DateTime?
+
+    // LoginName           String?
+    // Password            String?
+
+    @@removeColumn(["ObjectName", "ObjectNumber"])
+}
